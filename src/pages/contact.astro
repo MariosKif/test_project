@@ -150,7 +150,7 @@ import CTASection from '../components/CTASection.astro';
                     required
                     class="w-full rounded-xl border border-neutral-200 px-4 py-3 text-neutral-800 bg-white focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition"
                   >
-                    <option value="" disabled selected>Επιλέξτε τον προϋπολογισμό σας</option>
+                    <option value="" disabled selected>Προϋπολογισμός</option>
                   </select>
                 </div>
               </div>
@@ -218,7 +218,7 @@ import CTASection from '../components/CTASection.astro';
         const type = projectTypeSelect.value;
         const options = budgetOptions[type] || [];
 
-        budgetSelect.innerHTML = '<option value="" disabled selected>Επιλέξτε τον προϋπολογισμό σας</option>';
+        budgetSelect.innerHTML = '<option value="" disabled selected>Προϋπολογισμός</option>';
         options.forEach((opt) => {
           const option = document.createElement('option');
           option.value = opt.value;
