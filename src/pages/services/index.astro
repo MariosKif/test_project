@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import ProcessTimeline from '../../components/ProcessTimeline.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const services = [
+  {
+    title: "Web Design",
+    description: "Δημιουργούμε εντυπωσιακούς, ανθρωποκεντρικούς σχεδιασμούς που μαγεύουν το κοινό σας.",
+    href: "/services/web-design",
+    icon: "🎨",
+  },
+  {
+    title: "Web Development",
+    description: "Χτίζουμε ισχυρές, κλιμακούμενες ιστοσελίδες και web εφαρμογές με τεχνολογίες αιχμής.",
+    href: "/services/web-development",
+    icon: "💻",
+  },
+  {
+    title: "SEO",
+    description: "Στρατηγικές SEO βασισμένες σε δεδομένα που ενισχύουν την ορατότητα και το organic traffic σας.",
+    href: "/services/seo",
+    icon: "📈",
+  },
+  {
+    title: "Branding",
+    description: "Δημιουργούμε συναρπαστικές ταυτότητες brand που αφηγούνται την ιστορία σας.",
+    href: "/services/branding",
+    icon: "✦",
+  },
+];
+---
+
+<BaseLayout title="Υπηρεσίες | 210Designs" description="Εξερευνήστε τις υπηρεσίες μας: Web Design, Web Development, SEO και Branding.">
+  <PageHero
+    title="Οι Υπηρεσίες μας"
+    subtitle="Από την ιδέα μέχρι την κυκλοφορία, δίνουμε ζωή στο ψηφιακό σας όραμα"
+    gradient={true}
+  />
+
+  <section class="py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="gs-stagger grid grid-cols-1 md:grid-cols-2 gap-8">
+        {services.map((service) => (
+          <a href={service.href} class="gs-reveal group block rounded-2xl border border-neutral-200 p-8 transition-all duration-300 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-500/10 hover:scale-[1.02]">
+            <span class="text-4xl mb-4 block">{service.icon}</span>
+            <h3 class="text-xl font-bold text-neutral-900 mb-3 group-hover:text-primary-600 transition-colors">{service.title}</h3>
+            <p class="text-neutral-500 leading-relaxed mb-4">{service.description}</p>
+            <span class="inline-flex items-center text-sm font-semibold text-primary-600 group-hover:text-primary-700 transition-colors">
+              Μάθετε περισσότερα
+              <span class="ml-1 transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="relative overflow-hidden gradient-bg">
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="text-center pt-20 md:pt-28">
+        <h2 class="gs-reveal font-display text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+          Πώς <span class="gradient-text">Δουλεύουμε</span>
+        </h2>
+      </div>
+    </div>
+    <ProcessTimeline />
+  </section>
+
+  <CTASection heading="Έχετε ένα Project στο Μυαλό σας;" />
+</BaseLayout>

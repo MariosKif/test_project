@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const features = [
+  {
+    title: "Frontend Ανάπτυξη",
+    description: "Σύγχρονες, γρήγορες διεπαφές με React, Next.js, Astro και Tailwind CSS.",
+  },
+  {
+    title: "Backend & API Ανάπτυξη",
+    description: "Ισχυρά backend συστήματα και RESTful/GraphQL APIs που κλιμακώνονται.",
+  },
+  {
+    title: "Ενσωμάτωση CMS",
+    description: "Εύκολη διαχείριση περιεχομένου με WordPress, Strapi ή headless CMS λύσεις.",
+  },
+  {
+    title: "Λύσεις E-commerce",
+    description: "Ολοκληρωμένα ηλεκτρονικά καταστήματα με Shopify, WooCommerce ή custom λύσεις.",
+  },
+  {
+    title: "Βελτιστοποίηση Απόδοσης",
+    description: "Ταχύτατη φόρτωση, βέλτιστα Core Web Vitals και εξαιρετική εμπειρία χρήστη.",
+  },
+];
+---
+
+<BaseLayout title="Web Development | 210Designs" description="Χτίζουμε ισχυρές, κλιμακούμενες ιστοσελίδες και web εφαρμογές με τεχνολογίες αιχμής.">
+  <PageHero
+    title="Web Development"
+    subtitle="Ισχυρές, κλιμακούμενες ιστοσελίδες και εφαρμογές με τεχνολογίες αιχμής"
+    gradient={true}
+  />
+
+  <section class="py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+        <div class="gs-reveal-left">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
+            Κώδικας που <span class="gradient-text">αποδίδει</span>
+          </h2>
+          <p class="text-lg text-neutral-600 leading-relaxed mb-6">
+            Χτίζουμε ισχυρές, κλιμακούμενες ιστοσελίδες και web εφαρμογές χρησιμοποιώντας τεχνολογίες αιχμής. Από γρήγορες ιστοσελίδες marketing μέχρι σύνθετες web εφαρμογές.
+          </p>
+          <p class="text-lg text-neutral-600 leading-relaxed">
+            Κάθε γραμμή κώδικα γράφεται με γνώμονα την απόδοση, την ασφάλεια και τη μακροχρόνια συντηρησιμότητα.
+          </p>
+        </div>
+        <div class="gs-reveal-right">
+          <div class="image-hover rounded-2xl">
+            <img
+              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80"
+              alt="Web Development"
+              class="w-full h-auto rounded-2xl object-cover aspect-video"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="gs-stagger grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map((feature) => (
+          <div class="gs-reveal rounded-2xl border border-neutral-200 p-6 hover:border-primary-300 hover:shadow-lg transition-all duration-300">
+            <h3 class="font-semibold text-neutral-900 mb-2">{feature.title}</h3>
+            <p class="text-sm text-neutral-500 leading-relaxed">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Έτοιμοι να χτίσουμε μαζί;" />
+</BaseLayout>

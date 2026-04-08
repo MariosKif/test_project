@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const features = [
+  {
+    title: "Τεχνικό SEO Audit",
+    description: "Πλήρης ανάλυση της ιστοσελίδας σας για εντοπισμό και διόρθωση τεχνικών προβλημάτων.",
+  },
+  {
+    title: "Έρευνα Λέξεων-Κλειδιών",
+    description: "Στοχευμένη έρευνα για τις λέξεις-κλειδιά που θα φέρουν το σωστό κοινό στην ιστοσελίδα σας.",
+  },
+  {
+    title: "On-Page Βελτιστοποίηση",
+    description: "Βελτιστοποίηση τίτλων, meta descriptions, headings και περιεχομένου για καλύτερη κατάταξη.",
+  },
+  {
+    title: "Link Building",
+    description: "Στρατηγική απόκτησης ποιοτικών backlinks που ενισχύουν την αυθεντία της ιστοσελίδας σας.",
+  },
+  {
+    title: "Αναφορές & Analytics",
+    description: "Μηνιαίες αναφορές απόδοσης με σαφή δεδομένα και προτάσεις βελτίωσης.",
+  },
+  {
+    title: "Τοπικό SEO",
+    description: "Βελτιστοποίηση για τοπικές αναζητήσεις και Google Business Profile.",
+  },
+];
+---
+
+<BaseLayout title="SEO | 210Designs" description="Στρατηγικές SEO που ενισχύουν την ορατότητα, αυξάνουν το organic traffic και φέρνουν αποτελέσματα.">
+  <PageHero
+    title="SEO"
+    subtitle="Στρατηγικές βασισμένες σε δεδομένα που ανεβάζουν την ιστοσελίδα σας στις κατατάξεις"
+    gradient={true}
+  />
+
+  <section class="py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+        <div class="gs-reveal-left">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
+            Ορατότητα που <span class="gradient-text">μετράει</span>
+          </h2>
+          <p class="text-lg text-neutral-600 leading-relaxed mb-6">
+            Το SEO δεν είναι απλά τεχνική — είναι στρατηγική. Αναλύουμε τον ανταγωνισμό, βρίσκουμε τις σωστές λέξεις-κλειδιά και βελτιστοποιούμε κάθε πτυχή της ιστοσελίδας σας.
+          </p>
+          <p class="text-lg text-neutral-600 leading-relaxed">
+            Στόχος μας είναι να φέρουμε ποιοτική επισκεψιμότητα που μετατρέπεται σε πελάτες, όχι απλά αριθμούς.
+          </p>
+        </div>
+        <div class="gs-reveal-right">
+          <div class="image-hover rounded-2xl">
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+              alt="SEO Analytics"
+              class="w-full h-auto rounded-2xl object-cover aspect-video"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="gs-stagger grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map((feature) => (
+          <div class="gs-reveal rounded-2xl border border-neutral-200 p-6 hover:border-primary-300 hover:shadow-lg transition-all duration-300">
+            <h3 class="font-semibold text-neutral-900 mb-2">{feature.title}</h3>
+            <p class="text-sm text-neutral-500 leading-relaxed">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection heading="Θέλετε να ανεβείτε στις κατατάξεις;" />
+</BaseLayout>

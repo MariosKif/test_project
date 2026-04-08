@@ -1,10 +1,16 @@
 ---
 const navLinks = [
   { label: 'Σχετικά', href: '/about' },
-  { label: 'Υπηρεσίες', href: '/services' },
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'Τιμές', href: '/pricing' },
   { label: 'Επικοινωνία', href: '/contact' },
+];
+
+const serviceLinks = [
+  { label: 'Web Design', href: '/services/web-design' },
+  { label: 'Web Development', href: '/services/web-development' },
+  { label: 'SEO', href: '/services/seo' },
+  { label: 'Branding', href: '/services/branding' },
 ];
 ---
 
@@ -22,16 +28,58 @@ const navLinks = [
 
       <!-- Desktop Navigation -->
       <nav class="hidden lg:flex items-center gap-8">
-        {
-          navLinks.map((link) => (
-            <a
-              href={link.href}
-              class="nav-link relative text-sm tracking-wide text-neutral-600 hover:text-neutral-900 transition-colors duration-300 py-1"
-            >
-              {link.label}
-            </a>
-          ))
-        }
+        <a
+          href="/about"
+          class="nav-link relative text-sm tracking-wide text-neutral-600 hover:text-neutral-900 transition-colors duration-300 py-1"
+        >
+          Σχετικά
+        </a>
+
+        <!-- Services Dropdown -->
+        <div class="services-dropdown relative">
+          <a
+            href="/services"
+            class="nav-link relative text-sm tracking-wide text-neutral-600 hover:text-neutral-900 transition-colors duration-300 py-1 inline-flex items-center gap-1"
+          >
+            Υπηρεσίες
+            <svg class="w-3.5 h-3.5 transition-transform duration-200 dropdown-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+
+          <!-- Dropdown Menu -->
+          <div class="dropdown-menu absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible transition-all duration-300">
+            <div class="bg-white rounded-xl border border-neutral-200 shadow-xl shadow-neutral-200/50 py-2 min-w-[200px]">
+              {serviceLinks.map((link) => (
+                <a
+                  href={link.href}
+                  class="block px-5 py-2.5 text-sm text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <a
+          href="/portfolio"
+          class="nav-link relative text-sm tracking-wide text-neutral-600 hover:text-neutral-900 transition-colors duration-300 py-1"
+        >
+          Portfolio
+        </a>
+        <a
+          href="/pricing"
+          class="nav-link relative text-sm tracking-wide text-neutral-600 hover:text-neutral-900 transition-colors duration-300 py-1"
+        >
+          Τιμές
+        </a>
+        <a
+          href="/contact"
+          class="nav-link relative text-sm tracking-wide text-neutral-600 hover:text-neutral-900 transition-colors duration-300 py-1"
+        >
+          Επικοινωνία
+        </a>
       </nav>
 
       <!-- CTA Button (Desktop) -->
@@ -80,7 +128,17 @@ const navLinks = [
     left: 0;
   }
 
-  /* Scrolled state — intensified glass + gradient bottom border */
+  /* Dropdown */
+  .services-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .services-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* Scrolled state */
   .navbar-scrolled {
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(24px) saturate(200%);
