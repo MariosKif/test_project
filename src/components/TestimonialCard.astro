@@ -1,0 +1,33 @@
+---
+interface Props {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+}
+
+const { quote, name, role, company } = Astro.props;
+
+// Generate initials for avatar
+const initials = name.split(' ').map(n => n[0]).join('').slice(0, 2);
+---
+
+<div class="gs-reveal card-hover glass rounded-2xl p-8 relative overflow-hidden">
+  <!-- Large decorative quotation mark -->
+  <span class="font-display text-8xl gradient-text leading-none select-none absolute -top-2 left-6 opacity-60">&ldquo;</span>
+
+  <blockquote class="relative pt-10 pb-6">
+    <p class="italic text-lg text-neutral-700 leading-relaxed">{quote}</p>
+  </blockquote>
+
+  <div class="flex items-center gap-4 mt-2">
+    <!-- Avatar with gradient background and initials -->
+    <div class="flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-br from-primary-600 to-violet-500 text-white text-sm font-bold shadow-lg shadow-primary-500/20 flex-shrink-0">
+      {initials}
+    </div>
+    <div>
+      <p class="font-semibold text-neutral-800">{name}</p>
+      <p class="text-sm text-neutral-500">{role}, {company}</p>
+    </div>
+  </div>
+</div>

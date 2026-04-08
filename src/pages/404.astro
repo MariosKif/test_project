@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Σελίδα Δεν Βρέθηκε | 210Designs"
+  description="Η σελίδα που αναζητάτε δεν υπάρχει."
+>
+  <section class="relative overflow-hidden gradient-bg py-28 md:py-40 lg:py-48">
+    <div class="blob blob-purple -top-40 -right-40 opacity-30"></div>
+    <div class="blob blob-blue -bottom-40 -left-40 opacity-25"></div>
+
+    <div class="relative max-w-3xl mx-auto px-6 lg:px-8 text-center">
+      <span class="block font-display text-8xl md:text-9xl font-bold gradient-text leading-none select-none">
+        404
+      </span>
+
+      <h1 class="mt-6 font-display text-3xl md:text-4xl font-bold text-neutral-900">
+        Σελίδα Δεν Βρέθηκε
+      </h1>
+
+      <p class="mt-4 text-lg text-neutral-500 max-w-lg mx-auto leading-relaxed">
+        Λυπούμαστε, η σελίδα που αναζητάτε δεν υπάρχει ή έχει μετακινηθεί.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/"
+          class="inline-flex items-center px-8 py-3.5 text-sm font-medium text-white rounded-full transition-all duration-300 bg-gradient-to-r from-primary-600 to-violet-500 hover:shadow-lg hover:shadow-primary-500/30 hover:scale-105"
+        >
+          Πίσω στην Αρχική
+          <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <a
+          href="/contact"
+          class="inline-flex items-center px-8 py-3.5 text-sm font-medium text-neutral-700 rounded-full border border-neutral-200 transition-all duration-300 hover:border-primary-300 hover:text-primary-600 hover:shadow-md"
+        >
+          Επικοινωνήστε
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

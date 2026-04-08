@@ -1,0 +1,64 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Ανακάλυψη",
+    description: "Μαθαίνουμε για την επιχείρησή σας, τους στόχους και το κοινό-στόχο για να ορίσουμε το εύρος του έργου.",
+  },
+  {
+    number: "02",
+    title: "Σχεδιασμός",
+    description: "Δημιουργούμε wireframes και mockups υψηλής πιστότητας που ευθυγραμμίζονται με το brand σας.",
+  },
+  {
+    number: "03",
+    title: "Ανάπτυξη",
+    description: "Χτίζουμε το project σας με καθαρό κώδικα, σύγχρονες τεχνολογίες και βέλτιστες πρακτικές.",
+  },
+  {
+    number: "04",
+    title: "Παράδοση",
+    description: "Ενδελεχής δοκιμή, υποστήριξη εκκίνησης και συνεχής συντήρηση για εξασφάλιση επιτυχίας.",
+  },
+];
+---
+
+<section class="py-20">
+  <div class="gs-stagger max-w-6xl mx-auto px-6">
+    <!-- Desktop: horizontal layout -->
+    <div class="hidden md:grid md:grid-cols-4 md:gap-8 relative">
+      <!-- Connecting line -->
+      <div class="absolute top-8 left-[12.5%] right-[12.5%] h-px bg-neutral-200"></div>
+
+      {steps.map((step) => (
+        <div class="relative text-center">
+          <!-- Step number circle -->
+          <div class="relative z-10 mx-auto w-16 h-16 rounded-full bg-white border-2 border-neutral-200 flex items-center justify-center mb-6">
+            <span class="font-display text-2xl font-bold text-primary-300">{step.number}</span>
+          </div>
+          <h3 class="font-semibold text-neutral-800 mb-2">{step.title}</h3>
+          <p class="text-sm text-neutral-500 leading-relaxed">{step.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Mobile: vertical layout -->
+    <div class="md:hidden space-y-10 relative">
+      <!-- Vertical connecting line -->
+      <div class="absolute top-8 bottom-8 left-8 w-px bg-neutral-200"></div>
+
+      {steps.map((step) => (
+        <div class="relative flex items-start gap-6">
+          <!-- Step number circle -->
+          <div class="relative z-10 flex-shrink-0 w-16 h-16 rounded-full bg-white border-2 border-neutral-200 flex items-center justify-center">
+            <span class="font-display text-2xl font-bold text-primary-300">{step.number}</span>
+          </div>
+          <div class="pt-3">
+            <h3 class="font-semibold text-neutral-800 mb-1">{step.title}</h3>
+            <p class="text-sm text-neutral-500 leading-relaxed">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

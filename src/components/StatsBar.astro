@@ -1,0 +1,35 @@
+---
+const stats = [
+  { value: "50+", target: 50, label: "Ολοκληρωμένα Έργα" },
+  { value: "5+", target: 5, label: "Χρόνια Εμπειρίας" },
+  { value: "100%", target: 100, label: "Ικανοποίηση Πελατών" },
+  { value: "30+", target: 30, label: "Χαρούμενοι Πελάτες" },
+];
+---
+
+<section class="bg-gradient-to-br from-purple-200 via-violet-200 to-purple-300 relative py-20 overflow-hidden">
+  <!-- Background grid texture -->
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+  <div class="gs-reveal relative max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0">
+      {stats.map((stat, index) => (
+        <div class="stat-item relative text-center px-6">
+          {/* Gradient line separator (not on first item) */}
+          {index > 0 && (
+            <div class="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-px h-16">
+              <div class="w-full h-full bg-gradient-to-b from-transparent via-primary-500/40 to-transparent"></div>
+            </div>
+          )}
+          <div
+            class="gs-counter font-display text-5xl font-bold gradient-text mb-3"
+            data-target={stat.target}
+          >
+            {stat.value}
+          </div>
+          <p class="text-sm text-neutral-400 tracking-wide">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

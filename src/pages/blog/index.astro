@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import CTASection from '../../components/CTASection.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<BaseLayout
+  title="Blog | 210Designs"
+  description="Ιδέες, οδηγοί και παρασκήνια από τη δημιουργική ομάδα 210Designs."
+>
+  <PageHero
+    title="Το Blog μας"
+    subtitle="Ιδέες, οδηγοί και παρασκήνια από τη δημιουργική μας ομάδα"
+    gradient={true}
+    breadcrumbs={[
+      { label: 'Αρχική', href: '/' },
+      { label: 'Blog', href: '/blog' },
+    ]}
+  />
+
+  <!-- Blog Grid -->
+  <section class="pb-24 md:pb-32 pt-4">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="gs-stagger grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {posts.map((post) => (
+          <BlogCard
+            image={post.data.image}
+            title={post.data.title}
+            excerpt={post.data.description}
+            date={post.data.date.toLocaleDateString('el-GR', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+            category={post.data.category}
+            slug={post.id}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTASection heading="Θέλετε να Μένετε Ενημερωμένοι;" buttonText="Εγγραφή" />
+
+</BaseLayout>

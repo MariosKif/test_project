@@ -1,0 +1,188 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ProcessTimeline from '../components/ProcessTimeline.astro';
+import CTASection from '../components/CTASection.astro';
+
+const teamMembers = [
+  {
+    name: 'Alex Morgan',
+    role: 'Δημιουργικός Διευθυντής',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
+  },
+  {
+    name: 'Sarah Chen',
+    role: 'Επικεφαλής Σχεδιαστής',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80',
+  },
+  {
+    name: 'Marcus Rivera',
+    role: 'Ανώτερος Προγραμματιστής',
+    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80',
+  },
+  {
+    name: 'Elena Kowalski',
+    role: 'Στρατηγικός Σχεδιασμός Brand',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80',
+  },
+];
+
+const values = [
+  {
+    icon: '✦',
+    title: 'Ποιότητα πάνω από Ταχύτητα',
+    description: 'Πιστεύουμε ότι η σπουδαία δουλειά χρειάζεται χρόνο. Κάθε pixel, κάθε γραμμή κώδικα είναι σκόπιμη.',
+  },
+  {
+    icon: '🤝',
+    title: 'Συνεργασία Πρώτα',
+    description: "Το όραμά σας κινεί τα πάντα. Δουλεύουμε δίπλα σας, όχι απομονωμένα.",
+  },
+  {
+    icon: '💡',
+    title: 'Πάντα Καινοτομία',
+    description: 'Μένουμε μπροστά από τις τάσεις ενώ χτίζουμε πάνω σε διαχρονικές αρχές σχεδιασμού.',
+  },
+  {
+    icon: '📈',
+    title: 'Αποτελέσματα που Μετράνε',
+    description: 'Ο όμορφος σχεδιασμός δεν είναι τίποτα χωρίς απόδοση. Μετράμε την επιτυχία μας μέσα από τη δική σας επιτυχία.',
+  },
+];
+---
+
+<BaseLayout
+  title="Σχετικά — 210Designs"
+  description="Μάθετε για την 210Designs, την ιστορία, τις αξίες και την ομάδα πίσω από τη δημιουργία."
+>
+  <PageHero
+    title="Σχετικά με Εμάς"
+    subtitle="Η ιστορία, οι αξίες και οι άνθρωποι πίσω από την 210Designs."
+    gradient={true}
+    breadcrumbs={[
+      { label: 'Αρχική', href: '/' },
+      { label: 'Σχετικά', href: '/about' },
+    ]}
+  />
+
+  <!-- Our Story Section -->
+  <section class="py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Text side -->
+        <div class="gs-reveal-left">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-neutral-900 mb-8">
+            Δημιουργούμε <span class="gradient-text">ψηφιακές εμπειρίες</span> που συγκινούν
+          </h2>
+          <p class="text-lg leading-relaxed text-neutral-600 mb-6">
+            Ιδρυθείσα το 2019, η 210Designs ξεκίνησε με μια απλή πεποίθηση: κάθε brand αξίζει μια ψηφιακή παρουσία που αντιπροσωπεύει πραγματικά ποιοι είναι. Αυτό που ξεκίνησε ως ένα studio δύο ατόμων εξελίχθηκε σε μια ομάδα παθιασμένων σχεδιαστών, προγραμματιστών και δημιουργικών μυαλών ενωμένων από έναν στόχο — τη δημιουργία ψηφιακών εμπειριών που <span class="gradient-text font-semibold">συγκινούν</span>.
+          </p>
+          <p class="text-lg leading-relaxed text-neutral-600">
+            Η προσέγγισή μας βασίζεται στη βαθιά συνεργασία, την σχολαστική προσοχή στη λεπτομέρεια και την αδιάκοπη αναζήτηση <span class="gradient-text font-semibold">αριστείας</span>. Δεν φτιάχνουμε απλά ιστοσελίδες — δημιουργούμε ψηφιακές ιστορίες που συνδέουν τα brands με το κοινό τους με ουσιαστικό τρόπο.
+          </p>
+        </div>
+
+        <!-- Image side -->
+        <div class="gs-reveal-right">
+          <div class="image-hover rounded-2xl">
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+              alt="Ομάδα που συνεργάζεται"
+              class="w-full h-auto rounded-2xl object-cover aspect-4/3"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Values Section -->
+  <section class="bg-gradient-to-br from-purple-200 via-violet-200 to-purple-300 py-20 md:py-28 relative overflow-hidden">
+    <div class="blob blob-purple -top-48 -right-48 opacity-20"></div>
+    <div class="blob blob-blue -bottom-48 -left-48 opacity-15"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="gs-reveal font-display text-3xl md:text-4xl font-bold mb-4">
+          Οι <span class="gradient-text">Αξίες</span> μας
+        </h2>
+        <p class="gs-reveal text-lg text-neutral-700 max-w-2xl mx-auto">
+          Οι αρχές που καθοδηγούν κάθε έργο που αναλαμβάνουμε
+        </p>
+      </div>
+
+      <div class="gs-stagger grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {
+          values.map((value) => (
+            <div class="gs-reveal glass-dark p-8 card-hover">
+              <div class="text-3xl mb-4">{value.icon}</div>
+              <h3 class="font-semibold text-lg text-white mb-2">{value.title}</h3>
+              <p class="text-neutral-400 leading-relaxed">{value.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="gs-reveal font-display text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+          Γνωρίστε την <span class="gradient-text">Ομάδα</span>
+        </h2>
+        <p class="gs-reveal text-lg text-neutral-500 max-w-2xl mx-auto">
+          Οι ταλαντούχοι άνθρωποι πίσω από κάθε pixel και γραμμή κώδικα
+        </p>
+      </div>
+
+      <div class="gs-stagger grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-5xl mx-auto">
+        {
+          teamMembers.map((member) => (
+            <div class="gs-reveal text-center card-hover rounded-2xl p-6">
+              <!-- Avatar with gradient ring -->
+              <div class="relative w-28 h-28 mx-auto mb-5">
+                <div class="absolute inset-0 rounded-full bg-gradient-to-br from-primary-500 via-violet-500 to-pink-500 p-[3px]">
+                  <div class="w-full h-full rounded-full overflow-hidden bg-white">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+              <h3 class="font-semibold text-neutral-800 text-lg">{member.name}</h3>
+              <p class="text-sm text-neutral-500 mt-1">{member.role}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="relative overflow-hidden gradient-bg">
+    <div class="blob blob-purple -top-40 right-0 opacity-20"></div>
+    <div class="blob blob-orange -bottom-40 left-0 opacity-15"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="text-center pt-20 md:pt-28">
+        <h2 class="gs-reveal font-display text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+          Η <span class="gradient-text">Διαδικασία</span> μας
+        </h2>
+        <p class="gs-reveal text-lg text-neutral-500 max-w-2xl mx-auto">
+          Μια δοκιμασμένη ροή εργασίας που μετατρέπει το όραμά σας σε πραγματικότητα
+        </p>
+      </div>
+    </div>
+    <ProcessTimeline />
+  </section>
+
+  <!-- CTA Section -->
+  <CTASection heading="Έτοιμοι να Ξεκινήσετε το Project σας;" />
+
+</BaseLayout>

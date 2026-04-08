@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<BaseLayout
+  title="Όροι Χρήσης | 210Designs"
+  description="Όροι και προϋποθέσεις χρήσης των υπηρεσιών 210Designs."
+>
+  <PageHero
+    title="Όροι Χρήσης"
+    subtitle="Παρακαλούμε διαβάστε αυτούς τους όρους προσεκτικά πριν χρησιμοποιήσετε τις υπηρεσίες μας"
+    breadcrumbs={[
+      { label: "Αρχική", href: "/" },
+      { label: "Όροι Χρήσης", href: "/terms" },
+    ]}
+  />
+
+  <section class="py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8 prose prose-neutral prose-lg">
+      <p class="text-neutral-500 text-sm mb-12">Τελευταία ενημέρωση: Απρίλιος 2026</p>
+
+      <h2 class="font-display text-2xl font-bold text-neutral-900 mt-12 mb-4">1. Αποδοχή Όρων</h2>
+      <p class="text-neutral-600 leading-relaxed mb-6">
+        Με την πρόσβαση και τη χρήση του ιστότοπου και των υπηρεσιών της 210Designs, συμφωνείτε να δεσμεύεστε από αυτούς τους Όρους Χρήσης. Εάν δεν συμφωνείτε με αυτούς τους όρους, παρακαλούμε μην χρησιμοποιείτε τις υπηρεσίες μας.
+      </p>
+
+      <h2 class="font-display text-2xl font-bold text-neutral-900 mt-12 mb-4">2. Υπηρεσίες</h2>
+      <p class="text-neutral-600 leading-relaxed mb-6">
+        Η 210Designs παρέχει υπηρεσίες σχεδιασμού ιστοσελίδων, ανάπτυξης ιστοσελίδων και branding. Το συγκεκριμένο εύρος, τα παραδοτέα και το χρονοδιάγραμμα κάθε έργου θα περιγράφονται σε ξεχωριστή συμφωνία έργου.
+      </p>
+
+      <h2 class="font-display text-2xl font-bold text-neutral-900 mt-12 mb-4">3. Πνευματική Ιδιοκτησία</h2>
+      <p class="text-neutral-600 leading-relaxed mb-6">
+        Με την πλήρη εξόφληση, οι πελάτες λαμβάνουν την ιδιοκτησία των τελικών παραδοτέων όπως ορίζεται στη συμφωνία έργου. Η 210Designs διατηρεί το δικαίωμα να προβάλλει ολοκληρωμένα έργα στο portfolio μας, εκτός εάν συμφωνηθεί διαφορετικά εγγράφως.
+      </p>
+
+      <h2 class="font-display text-2xl font-bold text-neutral-900 mt-12 mb-4">4. Όροι Πληρωμής</h2>
+      <p class="text-neutral-600 leading-relaxed mb-6">
+        Οι όροι πληρωμής, συμπεριλαμβανομένων των προκαταβολών, των ενδιάμεσων πληρωμών και των τελικών πληρωμών, θα περιγράφονται στη συμφωνία έργου. Οι καθυστερημένες πληρωμές ενδέχεται να οδηγήσουν σε καθυστερήσεις έργου ή αναστολή υπηρεσιών.
+      </p>
+
+      <h2 class="font-display text-2xl font-bold text-neutral-900 mt-12 mb-4">5. Περιορισμός Ευθύνης</h2>
+      <p class="text-neutral-600 leading-relaxed mb-6">
+        Η 210Designs δεν φέρει ευθύνη για τυχόν έμμεσες, τυχαίες ή επακόλουθες ζημίες που προκύπτουν από τη χρήση των υπηρεσιών ή του ιστότοπού μας. Η συνολική ευθύνη μας δεν υπερβαίνει το ποσό που καταβλήθηκε για τη συγκεκριμένη υπηρεσία.
+      </p>
+
+      <h2 class="font-display text-2xl font-bold text-neutral-900 mt-12 mb-4">6. Επικοινωνία</h2>
+      <p class="text-neutral-600 leading-relaxed mb-6">
+        Για ερωτήσεις σχετικά με αυτούς τους Όρους Χρήσης, επικοινωνήστε μαζί μας στο
+        <a href="mailto:hello@210designs.com" class="text-primary-600 hover:text-primary-700 transition-colors">hello@210designs.com</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

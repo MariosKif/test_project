@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<BaseLayout
+  title="Πολιτική Απορρήτου | 210Designs"
+  description="Μάθετε πώς η 210Designs συλλέγει, χρησιμοποιεί και προστατεύει τα προσωπικά σας δεδομένα."
+>
+  <PageHero
+    title="Πολιτική Απορρήτου"
+    subtitle="Πώς συλλέγουμε, χρησιμοποιούμε και προστατεύουμε τα δεδομένα σας"
+    breadcrumbs={[
+      { label: "Αρχική", href: "/" },
+      { label: "Πολιτική Απορρήτου", href: "/privacy" },
+    ]}
+  />
+
+  <section class="py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8 prose prose-neutral prose-lg">
+      <p class="text-neutral-500 text-sm mb-12">Τελευταία ενημέρωση: Απρίλιος 2026</p>
+
+      <h2 class="font-display text-2xl font-bold text-neutral-900 mt-12 mb-4">1. Πληροφορίες που Συλλέγουμε</h2>
+      <p class="text-neutral-600 leading-relaxed mb-6">
+        Συλλέγουμε πληροφορίες που μας παρέχετε απευθείας, όπως όταν συμπληρώνετε τη φόρμα επικοινωνίας μας, εγγράφεστε στο ενημερωτικό μας δελτίο ή επικοινωνείτε μαζί μας. Αυτές μπορεί να περιλαμβάνουν το όνομά σας, τη διεύθυνση email, τον αριθμό τηλεφώνου σας και οποιοδήποτε περιεχόμενο μηνύματος υποβάλλετε.
+      </p>
+
+      <h2 class="font-display text-2xl font-bold text-neutral-900 mt-12 mb-4">2. Πώς Χρησιμοποιούμε τις Πληροφορίες σας</h2>
+      <p class="text-neutral-600 leading-relaxed mb-6">
+        Χρησιμοποιούμε τις πληροφορίες που συλλέγουμε για να απαντήσουμε στα ερωτήματά σας, να σας στείλουμε ενημερώσεις και επικοινωνίες μάρκετινγκ (με τη συγκατάθεσή σας), να βελτιώσουμε τις υπηρεσίες μας και να επικοινωνούμε μαζί σας σχετικά με έργα και συνεργασίες.
+      </p>
+
+      <h2 class="font-display text-2xl font-bold text-neutral-900 mt-12 mb-4">3. Cookies & Analytics</h2>
+      <p class="text-neutral-600 leading-relaxed mb-6">
+        Ο ιστότοπός μας μπορεί να χρησιμοποιεί cookies και παρόμοιες τεχνολογίες παρακολούθησης για να βελτιώσει την εμπειρία περιήγησής σας και να αναλύσει την επισκεψιμότητα του ιστότοπου. Μπορείτε να ελέγξετε τις προτιμήσεις cookies μέσω των ρυθμίσεων του προγράμματος περιήγησής σας.
+      </p>
+
+      <h2 class="font-display text-2xl font-bold text-neutral-900 mt-12 mb-4">4. Υπηρεσίες Τρίτων</h2>
+      <p class="text-neutral-600 leading-relaxed mb-6">
+        Ενδέχεται να χρησιμοποιούμε υπηρεσίες τρίτων, όπως παρόχους αναλυτικών στοιχείων και πλατφόρμες email μάρκετινγκ. Αυτές οι υπηρεσίες ενδέχεται να συλλέγουν πληροφορίες όπως περιγράφεται στις δικές τους πολιτικές απορρήτου.
+      </p>
+
+      <h2 class="font-display text-2xl font-bold text-neutral-900 mt-12 mb-4">5. Ασφάλεια Δεδομένων</h2>
+      <p class="text-neutral-600 leading-relaxed mb-6">
+        Λαμβάνουμε εύλογα μέτρα για την προστασία των προσωπικών σας πληροφοριών από απώλεια, κλοπή, κακή χρήση και μη εξουσιοδοτημένη πρόσβαση. Ωστόσο, καμία μέθοδος μετάδοσης μέσω του Διαδικτύου δεν είναι 100% ασφαλής.
+      </p>
+
+      <h2 class="font-display text-2xl font-bold text-neutral-900 mt-12 mb-4">6. Επικοινωνία</h2>
+      <p class="text-neutral-600 leading-relaxed mb-6">
+        Εάν έχετε ερωτήσεις σχετικά με αυτήν την Πολιτική Απορρήτου, επικοινωνήστε μαζί μας στο
+        <a href="mailto:hello@210designs.com" class="text-primary-600 hover:text-primary-700 transition-colors">hello@210designs.com</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

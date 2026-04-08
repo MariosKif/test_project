@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import CTASection from '../../components/CTASection.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+// Format date
+const formattedDate = post.data.date.toLocaleDateString('el-GR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+// Estimate reading time (~200 words per minute)
+const body = post.body ?? '';
+const wordCount = body.split(/\s+/).length;
+const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+
+// Author initials
+const initials = post.data.author
+  .split(' ')
+  .map((n: string) => n[0])
+  .join('')
+  .toUpperCase();
+
+// Related posts (exclude current, limit to 3)
+const allPosts = (await getCollection('blog'))
+  .filter((p) => p.id !== post.id)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title={`${post.data.title} | 210Designs Blog`}
+  description={post.data.description}
+>
+  <!-- Article Header -->
+  <section class="relative overflow-hidden gradient-bg pt-16 md:pt-24 pb-8">
+    <div class="blob blob-purple -top-40 -right-40 opacity-20"></div>
+    <div class="blob blob-blue -bottom-40 -left-40 opacity-15"></div>
+
+    <div class="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <!-- Breadcrumbs -->
+      <nav class="gs-reveal mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center justify-center gap-2 text-sm text-neutral-400">
+          <li>
+            <a href="/" class="hover:text-primary-600 transition-colors duration-200">Αρχική</a>
+          </li>
+          <li class="select-none" aria-hidden="true">/</li>
+          <li>
+            <a href="/blog" class="hover:text-primary-600 transition-colors duration-200">Blog</a>
+          </li>
+          <li class="select-none" aria-hidden="true">/</li>
+          <li>
+            <span class="text-neutral-600">{post.data.title}</span>
+          </li>
+        </ol>
+      </nav>
+
+      <!-- Category Badge -->
+      <div class="gs-reveal mb-5">
+        <span class="inline-block text-xs font-semibold uppercase tracking-wider text-white rounded-full px-4 py-1.5 bg-gradient-to-r from-primary-600 to-violet-500">
+          {post.data.category}
+        </span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="gs-reveal font-display text-4xl md:text-5xl font-bold text-neutral-900 leading-tight max-w-3xl mx-auto">
+        {post.data.title}
+      </h1>
+
+      <!-- Meta Info -->
+      <div class="gs-reveal mt-6 flex items-center justify-center gap-4 text-sm text-neutral-500">
+        <span>{post.data.author}</span>
+        <span class="w-1 h-1 rounded-full bg-neutral-300"></span>
+        <time datetime={post.data.date.toISOString()}>{formattedDate}</time>
+        <span class="w-1 h-1 rounded-full bg-neutral-300"></span>
+        <span>{readingTime} λεπτά ανάγνωσης</span>
+      </div>
+
+      <!-- Featured Image -->
+      {post.data.image && (
+        <div class="gs-reveal mt-10 image-hover rounded-2xl">
+          <img
+            src={post.data.image}
+            alt={post.data.title}
+            class="w-full h-auto aspect-video object-cover rounded-2xl"
+            loading="lazy"
+          />
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Article Body -->
+  <section class="py-12 md:py-16">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8
+      [&>p]:text-lg [&>p]:leading-relaxed [&>p]:text-neutral-700 [&>p]:mb-6
+      [&>h2]:font-display [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:text-neutral-900 [&>h2]:mb-4 [&>h2]:mt-10
+      [&>h3]:font-display [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:text-neutral-900 [&>h3]:mb-4 [&>h3]:mt-10
+      [&>h4]:font-display [&>h4]:text-lg [&>h4]:font-semibold [&>h4]:text-neutral-900 [&>h4]:mb-3 [&>h4]:mt-8
+      [&>a]:text-primary-600 [&>a]:underline
+      [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-6 [&>ul]:text-neutral-700
+      [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:mb-6 [&>ol]:text-neutral-700
+      [&>blockquote]:border-l-4 [&>blockquote]:border-primary-200 [&>blockquote]:pl-6 [&>blockquote]:italic [&>blockquote]:text-neutral-600 [&>blockquote]:my-8
+    ">
+      <Content />
+    </div>
+  </section>
+
+  <!-- Author Bio -->
+  <section class="pb-16">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="gs-reveal glass p-8 gradient-border">
+        <div class="flex items-center gap-5">
+          <div class="w-14 h-14 rounded-full bg-gradient-to-br from-primary-500 to-violet-500 flex items-center justify-center flex-shrink-0">
+            <span class="text-sm font-bold text-white">{initials}</span>
+          </div>
+          <div>
+            <p class="font-semibold text-neutral-900 text-lg">{post.data.author}</p>
+            <p class="text-sm text-neutral-500 mt-1">
+              Δημιουργικός σκέπτης, λύτης προβλημάτων και με πάθος για τη δημιουργία ουσιαστικών ψηφιακών εμπειριών στην 210Designs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Posts -->
+  {allPosts.length > 0 && (
+    <section class="bg-gradient-to-br from-purple-200 via-violet-200 to-purple-300 py-20 md:py-24 relative overflow-hidden">
+      <div class="blob blob-purple -top-40 -right-40 opacity-15"></div>
+      <div class="blob blob-blue -bottom-40 -left-40 opacity-10"></div>
+
+      <div class="relative max-w-7xl mx-auto px-6">
+        <h2 class="gs-reveal font-display text-2xl md:text-3xl font-bold text-center mb-12">
+          Περισσότερα <span class="gradient-text">Άρθρα</span>
+        </h2>
+        <div class="gs-stagger grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {allPosts.map((related) => (
+            <BlogCard
+              image={related.data.image}
+              title={related.data.title}
+              excerpt={related.data.description}
+              date={related.data.date.toLocaleDateString('el-GR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+              category={related.data.category}
+              slug={related.id}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <CTASection heading="Θέλετε να Μένετε Ενημερωμένοι;" buttonText="Εγγραφή" />
+
+</BaseLayout>

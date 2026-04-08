@@ -1,0 +1,37 @@
+---
+interface Breadcrumb {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  subtitle: string;
+  breadcrumbs?: Breadcrumb[];
+  gradient?: boolean;
+}
+
+const { title, subtitle, breadcrumbs, gradient = false } = Astro.props;
+---
+
+<section class="relative overflow-hidden gradient-bg py-20 md:py-28 lg:py-32">
+  <!-- Decorative blobs -->
+  <div class="blob blob-purple -top-40 -right-40 opacity-30"></div>
+  <div class="blob blob-blue -bottom-40 -left-40 opacity-25"></div>
+
+  <div class="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
+    <h1 class:list={[
+      "gs-reveal font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight",
+      gradient ? "gradient-text" : "text-neutral-900"
+    ]}>
+      {title}
+    </h1>
+
+    <p class="gs-reveal mt-5 md:mt-7 text-lg md:text-xl text-neutral-500 max-w-2xl mx-auto leading-relaxed">
+      {subtitle}
+    </p>
+
+    <!-- Gradient accent line -->
+    <div class="gs-reveal mt-10 mx-auto w-24 h-1 rounded-full bg-gradient-to-r from-primary-500 via-violet-500 to-pink-500"></div>
+  </div>
+</section>

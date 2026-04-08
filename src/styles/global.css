@@ -1,0 +1,297 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+
+  /* Primary — Deep Indigo to Electric Violet */
+  --color-primary-50: #eef2ff;
+  --color-primary-100: #e0e7ff;
+  --color-primary-200: #c7d2fe;
+  --color-primary-300: #a5b4fc;
+  --color-primary-400: #818cf8;
+  --color-primary-500: #6366f1;
+  --color-primary-600: #4f46e5;
+  --color-primary-700: #4338ca;
+  --color-primary-800: #3730a3;
+  --color-primary-900: #312e81;
+
+  /* Violet extension */
+  --color-violet-400: #a78bfa;
+  --color-violet-500: #8b5cf6;
+  --color-violet-600: #7c3aed;
+
+  /* Neutral — subtle warm tint */
+  --color-neutral-50: #fafaf9;
+  --color-neutral-100: #f5f5f4;
+  --color-neutral-200: #e7e5e4;
+  --color-neutral-300: #d6d3d1;
+  --color-neutral-400: #a8a29e;
+  --color-neutral-500: #78716c;
+  --color-neutral-600: #57534e;
+  --color-neutral-700: #44403c;
+  --color-neutral-800: #292524;
+  --color-neutral-900: #1c1917;
+
+  /* Accent — Warm Coral / Orange */
+  --color-accent: #f97316;
+  --color-accent-light: #fb923c;
+  --color-accent-dark: #ea580c;
+
+  /* Dark section palette */
+  --color-dark: #0a0a0f;
+  --color-dark-card: #131318;
+  --color-dark-border: #1e1e2a;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-neutral-800);
+  background-color: #fffffe;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Selection                                                          */
+/* ------------------------------------------------------------------ */
+::selection {
+  background-color: #8b5cf6;
+  color: #ffffff;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Focus-visible ring                                                 */
+/* ------------------------------------------------------------------ */
+:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Scrollbar                                                          */
+/* ------------------------------------------------------------------ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-primary-500), var(--color-violet-500));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-primary-400), var(--color-violet-400));
+}
+
+/* ------------------------------------------------------------------ */
+/*  Gradient utilities                                                 */
+/* ------------------------------------------------------------------ */
+
+/* Text with vibrant gradient fill */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Subtle mesh-style gradient for hero / section backgrounds */
+.gradient-bg {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(99, 102, 241, 0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 60% at 80% 20%, rgba(139, 92, 246, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 50% 80%, rgba(249, 115, 22, 0.08) 0%, transparent 70%),
+    #fffffe;
+}
+
+/* Gradient border — uses pseudo-element technique */
+.gradient-border {
+  position: relative;
+  border-radius: 1rem;
+  background: #ffffff;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Glassmorphism                                                      */
+/* ------------------------------------------------------------------ */
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+}
+
+.glass-dark {
+  background: rgba(10, 10, 15, 0.55);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Card hover                                                         */
+/* ------------------------------------------------------------------ */
+.card-hover {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.35s ease;
+  will-change: transform;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow:
+    0 20px 40px -12px rgba(99, 102, 241, 0.25),
+    0 0 0 1px rgba(139, 92, 246, 0.15);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Image hover (zoom in container)                                    */
+/* ------------------------------------------------------------------ */
+.image-hover {
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.image-hover img {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.image-hover:hover img {
+  transform: scale(1.08);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Hero animated gradient                                             */
+/* ------------------------------------------------------------------ */
+.hero-gradient {
+  background: linear-gradient(
+    270deg,
+    #6366f1,
+    #8b5cf6,
+    #a855f7,
+    #ec4899,
+    #f97316,
+    #8b5cf6,
+    #6366f1
+  );
+  background-size: 400% 400%;
+  animation: heroShift 12s ease infinite;
+}
+
+@keyframes heroShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Dramatic dark overlay for hero video / images */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 15, 0.60) 0%,
+    rgba(10, 10, 15, 0.40) 40%,
+    rgba(10, 10, 15, 0.70) 100%
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Dark section                                                       */
+/* ------------------------------------------------------------------ */
+.section-dark {
+  background-color: var(--color-dark);
+  color: #f5f5f4;
+}
+
+.section-dark ::selection {
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Blob decorations                                                   */
+/* ------------------------------------------------------------------ */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.45;
+  z-index: -1;
+  pointer-events: none;
+  width: 400px;
+  height: 400px;
+}
+
+.blob-purple {
+  background: radial-gradient(circle, #8b5cf6, #6366f1);
+}
+
+.blob-orange {
+  background: radial-gradient(circle, #f97316, #fb923c);
+  opacity: 0.35;
+}
+
+.blob-blue {
+  background: radial-gradient(circle, #6366f1, #4f46e5);
+}
+
+/* ------------------------------------------------------------------ */
+/*  GSAP animation defaults                                            */
+/* ------------------------------------------------------------------ */
+.gs-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.gs-reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.gs-reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.gs-reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+}

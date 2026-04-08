@@ -1,0 +1,79 @@
+---
+interface Props {
+  items: { question: string; answer: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="faq-accordion divide-y divide-neutral-200">
+  {items.map((item, index) => (
+    <div class="faq-item">
+      <button
+        class="faq-toggle w-full flex items-center justify-between py-5 text-left transition-colors duration-200 hover:text-primary-600"
+        aria-expanded="false"
+        aria-controls={`faq-answer-${index}`}
+      >
+        <span class="font-medium text-neutral-800 pr-4">{item.question}</span>
+        <span class="faq-icon flex-shrink-0 w-5 h-5 relative">
+          <!-- Horizontal line (always visible) -->
+          <span class="absolute top-1/2 left-0 w-5 h-0.5 bg-neutral-400 -translate-y-1/2 transition-colors duration-200"></span>
+          <!-- Vertical line (hides when open) -->
+          <span class="faq-vertical absolute top-0 left-1/2 w-0.5 h-5 bg-neutral-400 -translate-x-1/2 transition-all duration-300"></span>
+        </span>
+      </button>
+      <div
+        id={`faq-answer-${index}`}
+        class="faq-content overflow-hidden max-h-0 transition-[max-height] duration-300 ease-in-out"
+      >
+        <p class="pb-5 text-sm text-neutral-500 leading-relaxed pr-10">{item.answer}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggles = document.querySelectorAll('.faq-toggle');
+
+    toggles.forEach((toggle) => {
+      toggle.addEventListener('click', () => {
+        const item = toggle.closest('.faq-item');
+        if (!item) return;
+
+        const content = item.querySelector('.faq-content') as HTMLElement;
+        const vertical = item.querySelector('.faq-vertical') as HTMLElement;
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+
+        if (isOpen) {
+          // Close
+          content.style.maxHeight = '0';
+          toggle.setAttribute('aria-expanded', 'false');
+          vertical.style.transform = 'translateX(-50%) rotate(0deg)';
+          vertical.style.opacity = '1';
+        } else {
+          // Close all others first
+          document.querySelectorAll('.faq-item').forEach((otherItem) => {
+            const otherContent = otherItem.querySelector('.faq-content') as HTMLElement;
+            const otherToggle = otherItem.querySelector('.faq-toggle');
+            const otherVertical = otherItem.querySelector('.faq-vertical') as HTMLElement;
+            if (otherContent && otherToggle) {
+              otherContent.style.maxHeight = '0';
+              otherToggle.setAttribute('aria-expanded', 'false');
+              if (otherVertical) {
+                otherVertical.style.transform = 'translateX(-50%) rotate(0deg)';
+                otherVertical.style.opacity = '1';
+              }
+            }
+          });
+
+          // Open this one
+          content.style.maxHeight = content.scrollHeight + 'px';
+          toggle.setAttribute('aria-expanded', 'true');
+          vertical.style.transform = 'translateX(-50%) rotate(90deg)';
+          vertical.style.opacity = '0';
+        }
+      });
+    });
+  });
+</script>

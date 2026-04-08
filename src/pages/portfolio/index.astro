@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import CTASection from '../../components/CTASection.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('portfolio');
+
+const categoryLabels: Record<string, string> = {
+  'web-design': 'Web Design',
+  'development': 'Ανάπτυξη',
+  'creative': 'Δημιουργικό',
+};
+
+const breadcrumbs = [
+  { label: 'Αρχική', href: '/' },
+  { label: 'Portfolio', href: '/portfolio' },
+];
+---
+
+<BaseLayout title="Portfolio | 210Designs" description="Εξερευνήστε το portfolio μας με έργα web design, ανάπτυξης και δημιουργικού σχεδιασμού.">
+  <PageHero
+    title="Τα Έργα μας"
+    subtitle=""
+    gradient={true}
+    breadcrumbs={breadcrumbs}
+  />
+
+
+  <!-- Project Grid -->
+  <section class="pb-24 pt-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="gs-stagger grid grid-cols-1 md:grid-cols-2 gap-10">
+        {projects.map((project) => (
+          <div class="project-item" data-category={project.data.category}>
+            <ProjectCard
+              image={project.data.image}
+              title={project.data.title}
+              category={categoryLabels[project.data.category] || project.data.category}
+              slug={project.id}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTASection heading="Έχετε ένα Project στο Μυαλό σας;" />
+
+</BaseLayout>
