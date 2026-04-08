@@ -4,29 +4,6 @@ import PageHero from '../components/PageHero.astro';
 import ProcessTimeline from '../components/ProcessTimeline.astro';
 import CTASection from '../components/CTASection.astro';
 
-const teamMembers = [
-  {
-    initials: 'ΔΔ',
-    role: 'Δημιουργικός Διευθυντής',
-    gradient: 'from-primary-500 to-violet-500',
-  },
-  {
-    initials: 'ΕΣ',
-    role: 'Επικεφαλής Σχεδιαστής',
-    gradient: 'from-violet-500 to-pink-500',
-  },
-  {
-    initials: 'ΑΠ',
-    role: 'Ανώτερος Προγραμματιστής',
-    gradient: 'from-pink-500 to-orange-400',
-  },
-  {
-    initials: 'ΣB',
-    role: 'Στρατηγικός Brand',
-    gradient: 'from-orange-400 to-primary-500',
-  },
-];
-
 const values = [
   {
     icon: '✦',
@@ -116,33 +93,6 @@ const values = [
               <div class="text-3xl mb-4">{value.icon}</div>
               <h3 class="font-semibold text-lg text-neutral-900 mb-2">{value.title}</h3>
               <p class="text-neutral-500 leading-relaxed">{value.description}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Team Section -->
-  <section class="py-20 md:py-28">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="gs-reveal font-display text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-          Γνωρίστε την <span class="gradient-text">Ομάδα</span>
-        </h2>
-        <p class="gs-reveal text-lg text-neutral-500 max-w-2xl mx-auto">
-          Οι ταλαντούχοι άνθρωποι πίσω από κάθε pixel και γραμμή κώδικα
-        </p>
-      </div>
-
-      <div class="gs-stagger grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-5xl mx-auto">
-        {
-          teamMembers.map((member) => (
-            <div class="gs-reveal text-center card-hover rounded-2xl p-6">
-              <div class={`w-28 h-28 mx-auto mb-5 rounded-full bg-gradient-to-br ${member.gradient} flex items-center justify-center`}>
-                <span class="text-2xl font-bold text-white">{member.initials}</span>
-              </div>
-              <p class="font-semibold text-neutral-800 text-lg">{member.role}</p>
             </div>
           ))
         }
