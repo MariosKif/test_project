@@ -137,8 +137,7 @@ import CTASection from '../components/CTASection.astro';
                     class="w-full rounded-xl border border-neutral-200 px-4 py-3 text-neutral-800 bg-white focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition"
                   >
                     <option value="" disabled selected>Επιλέξτε τύπο project</option>
-                    <option value="website-design">Σχεδιασμός Ιστοσελίδας</option>
-                    <option value="web-development">Web Development</option>
+                    <option value="website-design">Κατασκευή Ιστοσελίδας</option>
                     <option value="seo-optimization">Βελτιστοποίηση SEO</option>
                     <option value="other">Άλλο</option>
                   </select>
@@ -201,11 +200,6 @@ import CTASection from '../components/CTASection.astro';
 
     const budgetOptions: Record<string, { value: string; label: string }[]> = {
       'website-design': [
-        { value: 'professional', label: 'Professional - €270' },
-        { value: 'premium', label: 'Premium - €550' },
-        { value: 'custom', label: 'Custom - Κατόπιν συνεννόησης' },
-      ],
-      'web-development': [
         { value: 'professional', label: 'Professional - €270' },
         { value: 'premium', label: 'Premium - €550' },
         { value: 'custom', label: 'Custom - Κατόπιν συνεννόησης' },
