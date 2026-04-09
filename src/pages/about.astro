@@ -3,29 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import ProcessTimeline from '../components/ProcessTimeline.astro';
 import CTASection from '../components/CTASection.astro';
+import ValuesGrid from '../components/ValuesGrid.astro';
 
-const values = [
-  {
-    icon: '✦',
-    title: 'Ποιότητα πάνω από Ταχύτητα',
-    description: 'Πιστεύουμε ότι η σπουδαία δουλειά χρειάζεται χρόνο. Κάθε pixel, κάθε γραμμή κώδικα είναι σκόπιμη.',
-  },
-  {
-    icon: '🤝',
-    title: 'Συνεργασία Πρώτα',
-    description: "Το όραμά σας κινεί τα πάντα. Δουλεύουμε δίπλα σας, όχι απομονωμένα.",
-  },
-  {
-    icon: '💡',
-    title: 'Πάντα Καινοτομία',
-    description: 'Μένουμε μπροστά από τις τάσεις ενώ χτίζουμε πάνω σε διαχρονικές αρχές σχεδιασμού.',
-  },
-  {
-    icon: '📈',
-    title: 'Αποτελέσματα που Μετράνε',
-    description: 'Ο όμορφος σχεδιασμός δεν είναι τίποτα χωρίς απόδοση. Μετράμε την επιτυχία μας μέσα από τη δική σας επιτυχία.',
-  },
-];
 ---
 
 <BaseLayout
@@ -52,10 +31,10 @@ const values = [
             Δημιουργούμε <span class="gradient-text">ψηφιακές εμπειρίες</span> που συγκινούν
           </h2>
           <p class="text-lg leading-relaxed text-neutral-600 mb-6">
-            Ιδρυθείσα το 2019, η 210Designs ξεκίνησε με μια απλή πεποίθηση: κάθε brand αξίζει μια ψηφιακή παρουσία που αντιπροσωπεύει πραγματικά ποιοι είναι. Αυτό που ξεκίνησε ως ένα studio δύο ατόμων εξελίχθηκε σε μια ομάδα παθιασμένων σχεδιαστών, προγραμματιστών και δημιουργικών μυαλών ενωμένων από έναν στόχο — τη δημιουργία ψηφιακών εμπειριών που <span class="gradient-text font-semibold">συγκινούν</span>.
+            Η 210Designs ξεκίνησε το 2023 με μια απλή ιδέα: κάθε επιχείρηση, μικρή ή μεγάλη, αξίζει μια ιστοσελίδα που πραγματικά της μοιάζει. Από την πρώτη μέρα, βάζουμε τον πελάτη στο κέντρο — ακούμε, καταλαβαίνουμε και δημιουργούμε <span class="gradient-text font-semibold">μαζί</span>.
           </p>
           <p class="text-lg leading-relaxed text-neutral-600">
-            Η προσέγγισή μας βασίζεται στη βαθιά συνεργασία, την σχολαστική προσοχή στη λεπτομέρεια και την αδιάκοπη αναζήτηση <span class="gradient-text font-semibold">αριστείας</span>. Δεν φτιάχνουμε απλά ιστοσελίδες — δημιουργούμε ψηφιακές ιστορίες που συνδέουν τα brands με το κοινό τους με ουσιαστικό τρόπο.
+            Δεν μας ενδιαφέρει απλά να φτιάξουμε κάτι ωραίο. Θέλουμε να φτιάξουμε κάτι που <span class="gradient-text font-semibold">δουλεύει</span> — που φέρνει πελάτες, χτίζει εμπιστοσύνη και κάνει τη δουλειά σας πιο εύκολη. Κάθε project για εμάς είναι μια συνεργασία, όχι απλά μια παραγγελία.
           </p>
         </div>
 
@@ -74,31 +53,8 @@ const values = [
     </div>
   </section>
 
-  <!-- Mission & Values Section -->
-  <section class="py-20 md:py-28">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="gs-reveal font-display text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-          Οι <span class="gradient-text">Αξίες</span> μας
-        </h2>
-        <p class="gs-reveal text-lg text-neutral-500 max-w-2xl mx-auto">
-          Οι αρχές που καθοδηγούν κάθε έργο που αναλαμβάνουμε
-        </p>
-      </div>
-
-      <div class="gs-stagger grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        {
-          values.map((value) => (
-            <div class="gs-reveal rounded-2xl border border-neutral-200 p-8 hover:border-primary-300 hover:shadow-xl transition-all duration-300">
-              <div class="text-3xl mb-4">{value.icon}</div>
-              <h3 class="font-semibold text-lg text-neutral-900 mb-2">{value.title}</h3>
-              <p class="text-neutral-500 leading-relaxed">{value.description}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
+  <!-- Values Section -->
+  <ValuesGrid />
 
   <!-- Process Section -->
   <section class="relative overflow-hidden gradient-bg">

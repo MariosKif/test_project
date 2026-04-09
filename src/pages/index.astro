@@ -5,6 +5,7 @@ import ProjectCard from '../components/ProjectCard.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import StatsBar from '../components/StatsBar.astro';
 import CTASection from '../components/CTASection.astro';
+import ValuesGrid from '../components/ValuesGrid.astro';
 import { getCollection } from 'astro:content';
 
 const portfolioEntries = await getCollection('portfolio');
@@ -70,15 +71,13 @@ const projects = [
     <!-- Hero Content -->
     <div class="relative z-10 max-w-5xl mx-auto px-6 text-center hero-text-reveal">
       <h1 class="hero-line font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] mb-8">
-        <span class="text-white">Σχεδιάζουμε</span><br />
-        <span class="hero-gradient-text">Ψηφιακές Εμπειρίες</span><br />
-        <span class="text-white">που Μαγεύουν</span>
+        <span class="text-white">Η ιστοσελίδα σας,</span><br />
+        <span class="hero-gradient-text">ο καλύτερος</span><br />
+        <span class="text-white">πωλητής σας.</span>
       </h1>
 
-      <p class="hero-line text-lg md:text-xl text-neutral-300 max-w-2xl mx-auto mb-12 leading-relaxed">
-        Η 210Designs είναι ένα δημιουργικό studio όπου η στρατηγική συναντά την τέχνη. Χτίζουμε
-        εντυπωσιακές ιστοσελίδες, δυνατά brands και καθηλωτικά ψηφιακά προϊόντα που
-        φέρνουν μετρήσιμα αποτελέσματα.
+      <p class="hero-line text-lg md:text-xl text-neutral-300 max-w-xl mx-auto mb-12 leading-relaxed">
+        Χτίζουμε ιστοσελίδες που φέρνουν πελάτες, όχι απλά επισκέπτες.
       </p>
 
       <div class="hero-line flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -272,14 +271,14 @@ const projects = [
           <div class="relative pt-6">
             <blockquote class="mb-8">
               <p class="text-lg text-neutral-700 leading-relaxed italic">
-                "Ήθελα μια ιστοσελίδα που να δείχνει επαγγελματική αλλά και προσιτή. Η ομάδα κατάλαβε αμέσως τι χρειαζόμουν και το αποτέλεσμα ήταν ακριβώς αυτό που φανταζόμουν — ίσως και καλύτερο."
+                "Χρειαζόμασταν ένα site για το φροντιστήριό μας που να φαίνεται σοβαρό αλλά και φιλικό προς τους γονείς. Μας το παρέδωσαν σε τρεις εβδομάδες, πάντα διαθέσιμοι για αλλαγές. Ήδη λαμβάνουμε αιτήσεις εγγραφής μέσω της ιστοσελίδας."
               </p>
             </blockquote>
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">ΝΚ</div>
+              <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">ΕΤ</div>
               <div>
-                <p class="font-semibold text-neutral-900">Νίκος Καραγιάννης</p>
-                <p class="text-sm text-neutral-500">Ιδιοκτήτης, Karayannis Dental Clinic</p>
+                <p class="font-semibold text-neutral-900">Ελένη Τσακίρη</p>
+                <p class="text-sm text-neutral-500">Ιδιοκτήτρια Φροντιστηρίου</p>
               </div>
             </div>
           </div>
@@ -291,14 +290,14 @@ const projects = [
           <div class="relative pt-6">
             <blockquote class="mb-8">
               <p class="text-lg text-neutral-700 leading-relaxed italic">
-                "Μέσα σε δύο μήνες από τη νέα ιστοσελίδα, οι online κρατήσεις μας αυξήθηκαν κατά 40%. Η διαδικασία ήταν ομαλή, χωρίς καθυστερήσεις, και η επικοινωνία εξαιρετική σε κάθε βήμα."
+                "Τρέχουμε ένα μικρό ξενοδοχείο στη Σαντορίνη και η παλιά μας σελίδα μας κόστιζε κρατήσεις. Η νέα ιστοσελίδα είναι γρήγορη, δείχνει υπέροχα στο κινητό, και τα reviews στο Google μας ανέβηκαν γιατί πλέον οι πελάτες βρίσκουν εύκολα ό,τι ψάχνουν."
               </p>
             </blockquote>
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">ΜΠ</div>
+              <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">ΓΑ</div>
               <div>
-                <p class="font-semibold text-neutral-900">Μαρία Παπαδοπούλου</p>
-                <p class="text-sm text-neutral-500">Διευθύντρια, Olive & Vine Bistro</p>
+                <p class="font-semibold text-neutral-900">Γιώργος Αναστασίου</p>
+                <p class="text-sm text-neutral-500">Διευθυντής, Aether Suites Santorini</p>
               </div>
             </div>
           </div>
@@ -310,14 +309,14 @@ const projects = [
           <div class="relative pt-6">
             <blockquote class="mb-8">
               <p class="text-lg text-neutral-700 leading-relaxed italic">
-                "Είχαμε δοκιμάσει δύο agencies πριν καταλήξουμε στην 210Designs. Η διαφορά ήταν ότι δεν μας έδωσαν απλά μια ιστοσελίδα — μας έδωσαν ένα εργαλείο που φέρνει πελάτες κάθε μέρα."
+                "Ξεκίνησα ένα e-shop με κοσμήματα χωρίς να ξέρω τίποτα από τεχνολογία. Μου εξήγησαν τα πάντα απλά, μου έστησαν ολόκληρο το κατάστημα, και τώρα διαχειρίζομαι μόνη μου τις παραγγελίες. Το συνιστώ ανεπιφύλακτα."
               </p>
             </blockquote>
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background: linear-gradient(135deg, #ec4899, #f97316);">ΔΛ</div>
+              <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background: linear-gradient(135deg, #ec4899, #f97316);">ΚΒ</div>
               <div>
-                <p class="font-semibold text-neutral-900">Δημήτρης Λεβέντης</p>
-                <p class="text-sm text-neutral-500">Co-founder, FitZone Studios</p>
+                <p class="font-semibold text-neutral-900">Κατερίνα Βασιλείου</p>
+                <p class="text-sm text-neutral-500">Ιδιοκτήτρια, Mati Jewellery</p>
               </div>
             </div>
           </div>
@@ -325,6 +324,11 @@ const projects = [
       </div>
     </div>
   </section>
+
+  <!-- ============================================================ -->
+  <!-- VALUES GRID                                                    -->
+  <!-- ============================================================ -->
+  <ValuesGrid />
 
   <!-- ============================================================ -->
   <!-- CTA SECTION — ANIMATED GRADIENT                               -->
